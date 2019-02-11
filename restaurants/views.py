@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Restaurant
+from .forms import Restaurant
 
 def welcome(request):
     return render(request, 'index.html', {'msg':'Hello World!'})
@@ -18,8 +19,9 @@ def restaurant_detail(request, restaurant_id):
     return render(request, 'detail.html', context)
 
 def restaurant_create(request):
+    form = RestaurantForm()
 
     context = {
-
+        'form' : form
     }
     return render(request, 'create.html', context)
